@@ -23,5 +23,15 @@ async function fetchProfile(){
 
     console.log(data);
 
+    renderProfile(data);
     
+}
+
+function renderProfile(data){
+
+    avatar.src = data.avatar_url;
+
+    profileName.textContent = data.name;
+
+    profileBio.textContent = data.bio;
 }
