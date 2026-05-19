@@ -1,10 +1,12 @@
 let username = "";
 const searchField = document.getElementById("search-field");
+
+//card contents
 const avatar = document.getElementById("avatar");
-
 const profileName = document.getElementById("profile-name");
-
 const profileBio =  document.getElementById("profile-bio");
+const joinDate =  document.getElementById("join-date");
+
 
 const loading = document.getElementById("loading");
 
@@ -35,7 +37,8 @@ async function fetchProfile(){
         }
 
         const data = await response.json();
-    
+        console.log(data);
+        
         loading.textContent = "";
     
         renderProfile(data);
@@ -58,6 +61,20 @@ function renderProfile(data){
     profileName.textContent = data.name;
 
     profileBio.textContent = data.bio;
+
+    joinDate.textContent = formatDate(data.created_at);
+}
+
+function formatDate(dateString) {
+    
+    const date = new Date(dateString);
+
+    return date.toLocaleDateString("en-GB", {
+
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
 }
 
 function clearProfile() {
