@@ -141,3 +141,8 @@ main {
 
     color: #1b263b;
 }
+
+.hidden {
+
+    display: none;
+}

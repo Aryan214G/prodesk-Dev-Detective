@@ -57,3 +57,4 @@ async function fetchProfile(){
 
 6) How do I cleanup this created_at date from the data: 2011-01-25T18:44:36Z
 
+7) How do I hide the card?

@@ -2,6 +2,7 @@ let username = "";
 const searchField = document.getElementById("search-field");
 
 //card contents
+const card = document.querySelector(".card");
 const avatar = document.getElementById("avatar");
 const profileName = document.getElementById("profile-name");
 const profileBio =  document.getElementById("profile-bio");
@@ -68,6 +69,7 @@ function renderProfile(data){
 
     portfolio.href = data.html_url;
 
+    card.classList.remove("hidden");
 }
 
 function formatDate(dateString) {
@@ -89,4 +91,6 @@ function clearProfile() {
     profileName.textContent = "";
 
     profileBio.textContent = "";
+
+    card.classList.add("hidden");
 }
