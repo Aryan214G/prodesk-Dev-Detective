@@ -9,6 +9,9 @@ const profileBio =  document.getElementById("profile-bio");
 const joinDate =  document.getElementById("join-date");
 const portfolio = document.getElementById("portfolio-link");
 
+//repo contents
+const repoList = document.getElementById("repo-list");
+
 const loading = document.getElementById("loading");
 
 const statusLabel = document.getElementById("status");
@@ -44,6 +47,7 @@ async function fetchProfile(){
     
         renderProfile(data);
 
+        fetchRepos(data);
     } catch (error) {
             statusLabel.textContent = error.message;
         
@@ -93,4 +97,15 @@ function clearProfile() {
     profileBio.textContent = "";
 
     card.classList.add("hidden");
+}
+
+async function fetchRepos(data) {
+    
+    const url = data.repos_url;
+        
+        const response = await fetch(url);
+    
+        const repoData = await response.json();
+        console.log(repoData);
+
 }
