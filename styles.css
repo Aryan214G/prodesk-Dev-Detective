@@ -1,4 +1,143 @@
 body {
+    margin: 0;
     font-family: "Inter", sans-serif;
     background-color: #e9ecef;
+}
+
+main {
+
+    max-width: 700px;
+
+    margin: 40px auto;
+
+    padding: 20px;
+}
+
+.search-section {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+#search-field {
+
+    flex: 1;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+#search-btn {
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background-color: #1b263b;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.search-section {
+    padding: 1rem;
+    margin-right: 1rem;
+}
+
+
+
+.card {
+
+    width: 100%;
+
+    max-width: 420px;
+
+    background-color: white;
+
+    border-radius: 18px;
+
+    padding: 16px;
+
+    box-shadow:
+        0px 6px 18px rgba(0,0,0,0.08);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    text-align: left;
+
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 6px 6px 20px grey;
+}
+
+#avatar {
+
+    width: 100%;
+
+    max-width: fit-content;
+
+    margin-bottom: 1rem;
+
+    border-radius: 28px;
+
+    object-fit: cover;
+
+    box-shadow:
+        0px 6px 18px rgba(0,0,0,0.08);
+}
+
+#profile-name {
+
+    margin: 0;
+
+    font-size: 2rem;
+}
+
+#profile-bio {
+
+    margin: 0;
+
+    color: #555;
+
+    line-height: 1.5;
+}
+
+#join-date {
+
+    margin-top: 10px;
+
+    color: #777;
+}
+
+#portfolio-link {
+
+    margin-top: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    color: #1b263b;
 }
