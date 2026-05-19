@@ -6,7 +6,7 @@ const avatar = document.getElementById("avatar");
 const profileName = document.getElementById("profile-name");
 const profileBio =  document.getElementById("profile-bio");
 const joinDate =  document.getElementById("join-date");
-
+const portfolio = document.getElementById("portfolio-link");
 
 const loading = document.getElementById("loading");
 
@@ -63,6 +63,11 @@ function renderProfile(data){
     profileBio.textContent = data.bio;
 
     joinDate.textContent = formatDate(data.created_at);
+
+    portfolio.textContent = "Portfolio";
+
+    portfolio.href = data.html_url;
+
 }
 
 function formatDate(dateString) {
