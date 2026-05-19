@@ -6,26 +6,50 @@ const profileName = document.getElementById("profile-name");
 
 const profileBio =  document.getElementById("profile-bio");
 
+const loading = document.getElementById("loading");
+
+const statusLabel = document.getElementById("status");
 
 document.getElementById("search-btn").addEventListener("click", () => {
     
     username = searchField.value;
+    
+    clearProfile();
     fetchProfile();
 })
 
+
 async function fetchProfile(){
 
-    const url =`https://api.github.com/users/${username}`;
+    try {
+        const url =`https://api.github.com/users/${username}`;
+        
+        loading.textContent = "Loading...";
     
-    const response = await fetch(url);
+        const response = await fetch(url);
+    
+        //check for error
+        if (!response.ok) {
 
-    const data = await response.json();
+            throw new Error("User not found");
+        }
 
-    console.log(data);
+        const data = await response.json();
+    
+        loading.textContent = "";
+    
+        renderProfile(data);
 
-    renderProfile(data);
+    } catch (error) {
+            statusLabel.textContent = error.message;
+        
+    }
+    finally {
+        loading.textContent = "";
+    }
     
 }
+
 
 function renderProfile(data){
 
@@ -34,4 +58,13 @@ function renderProfile(data){
     profileName.textContent = data.name;
 
     profileBio.textContent = data.bio;
+}
+
+function clearProfile() {
+
+    avatar.src = "";
+
+    profileName.textContent = "";
+
+    profileBio.textContent = "";
 }
