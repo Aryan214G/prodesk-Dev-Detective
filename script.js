@@ -97,6 +97,8 @@ function clearProfile() {
     profileBio.textContent = "";
 
     card.classList.add("hidden");
+
+    repoList.innerHTML = "";
 }
 
 async function fetchRepos(data) {
@@ -108,4 +110,29 @@ async function fetchRepos(data) {
         const repoData = await response.json();
         console.log(repoData);
 
+        renderRepositories(repoData);
+
 }
+
+function renderRepositories(repoData) {
+    
+    repoList.innerHTML = "";
+
+    const latestRepos = repoData.slice(0, 5);
+
+    latestRepos.forEach((repo) => {
+
+        const li = document.createElement("li");
+
+        const link = document.createElement("a");
+
+        link.textContent = repo.name;
+        link.href = repo.html_url;
+        link.target = "_blank";
+
+        li.appendChild(link);
+
+        repoList.appendChild(li);
+    })
+}
+

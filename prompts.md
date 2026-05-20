@@ -58,3 +58,9 @@ async function fetchProfile(){
 6) How do I cleanup this created_at date from the data: 2011-01-25T18:44:36Z
 
 7) How do I hide the card?
+
+8) I have used the repos_url api to fetch repos of the user, now how do I store and display them?
+
+9) Here is my HTML structure, suggest appropriate CSS styling for it.
+
+10) Explain this syntax:  link.target = "_blank";
