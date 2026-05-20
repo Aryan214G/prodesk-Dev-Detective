@@ -16,6 +16,8 @@ const loading = document.getElementById("loading");
 
 const statusLabel = document.getElementById("status");
 
+const repoHeading = document.getElementById("repo-heading");
+
 document.getElementById("search-btn").addEventListener("click", () => {
     
     username = searchField.value;
@@ -74,6 +76,8 @@ function renderProfile(data){
     portfolio.href = data.html_url;
 
     card.classList.remove("hidden");
+
+    repoHeading.textContent = "Latest Repositories";
 }
 
 function formatDate(dateString) {
@@ -99,6 +103,8 @@ function clearProfile() {
     card.classList.add("hidden");
 
     repoList.innerHTML = "";
+
+    repoHeading.textContent = "";
 }
 
 async function fetchRepos(data) {
